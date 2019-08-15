@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Manage Gastation";
+    var listGatype = ViewBag.listGasType;
+    var listDistrist = ViewBag.listDistrist;
+}
+
+    <main class="border p-lg-2">
+        <div id="map" class="text-center bg-white border">
+            <strong id="map-name" class="text-center w-100"></strong>
+            <div>
+                <div id="map-content"></div>
+            </div>
+        </div>
+
+        <h2 class="text-center pb-5">ガソリンスタンド一覧</h2>
+        @* Begin form *@
+        <form class="col-lg-10 col-xl-9 mx-auto">
+
+            <div class="input-group mb-3 d-lg-flex align-items-center">
+                <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">ガソリンスタンド名: </label>
+                <input type="text" class="form-control col-lg-9" autofocus id="gas-station-name">
+            </div>
+
+            <div class="input-group mb-3 d-flex">
+                <label for="gas-station-x" class="col-2 col-lg-3 p-0 pb-2 pb-lg-0">種類: </label>
+                <div class="col-9 pl-0">
+                    @foreach (var item in listGatype)
+                    {
+                        <div class="pr-5 pb-2">
+                            <input class="cursor" type="checkbox" name="select-gas-type" id=@item.TypeText value=@item.TypeCode>
+                            <label class="cursor" for=@item.TypeText>
+                                @item.TypeText
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="input-group mb-3 d-lg-flex align-items-center">
+                <label for="select-district" class="col-lg-3 p-0 pb-2 pb-lg-0">地区: </label>
+                <select class="custom-select" id="select-district">
+                    <option selected>選択してください...</option>
+                    @foreach (var item in listDistrist)
+                    {
+                        <option value="@item.DistrictId">@item.DistrictName</option>
+                    }
+                </select>
+            </div>
+
+            <input type="submit" class="btn btn-primary d-block mx-auto" id="btn-search" value="検索" />
+
+        </form>
+        @* End form *@
+
+        <button class="btn btn-primary">登録</button>
+
+        <div class="mt-3">
+            <table border="1" width="100%" class="table-hover text-center">
+                <thead>
+                    <tr>
+                        <th scope="col" class="py-1">ガソリンスタンド名</th>
+                        <th scope="col">種類</th>
+                        <th scope="col">地区</th>
+                        <th scope="col">Longitude, Latitude</th>
+                        <th scope="col">評価</th>
+                        <th scope="col">Option</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body-content">
+                    @* JavaScript will pr *@
+                </tbody>
+            </table>
+        </div>
+
+        @* Pagination *@
+        <div class="pb-5 mt-3 mb-5 mb-lg-0 d-md-flex justify-content-center w-100" id="pagination-box">
+
+        </div>
+    </main>
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSxLoeVH330_x1JYvbWXnNmGFAKFKOPeE" async defer></script>
+    <script src="~/js/homeController.js"></script>
+}

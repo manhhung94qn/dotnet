@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "Add Gas Station";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    @model GasStationWeb.ModelsViews.GasStaionMV ;
+    var listDistrist = ViewBag.listDistrist;
+    var listGatype = ViewBag.listGasType;
+    var ratingList = ViewBag.ratingList;
+}
+
+<main>
+    <div class="form-horizontal col-lg-10 col-xl-9 mx-auto">
+        <h2 class="text-center mb-5">ガソリンスタンド一登録</h2>
+    </div>
+    <form asp-action="AddGasStation" method="post" class="col-lg-10 col-xl-9 mx-auto" id="form-add-gas-station">
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">ガソリンスタンド名: </label>
+            <input type="text" class="form-control col-lg-9" asp-for="GasStationName" autofocus id="gas-station-name">
+        </div>
+        <div class="align-items-center mb-3 d-none" id="validator-for-gas-name">
+            <label class="col-lg-3"></label>
+            <span class="text-danger col-lg-9 px-0" id="validator-for-gas-name-error"></span>
+        </div>
+
+        <div class="input-group d-flex">
+            <label class="col-2 col-lg-3 p-0 pb-2 pb-lg-0">種類: </label>
+            <div class=" col-9 pl-0">
+                @foreach (var item in listGatype)
+                {
+                    <div class="pr-5">
+                        <input class="cursor" type="checkbox" name="select-gas-type" id=@item.TypeText value=@item.TypeCode>
+                        <label class="cursor" for="@item.TypeText">
+                            @item.TypeText
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="align-items-center mb-3 d-none" id="validator-for-gas-type">
+            <label for="gas-station-name" class="col-lg-3"></label>
+            <span class="text-danger col-lg-9 px-0">種類を入力してください。</span>
+        </div>
+
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">Longitude: </label>
+            <input type="text" class="form-control col-lg-9" asp-for="Longitude" autofocus id="gas-station-longitude">
+        </div>
+        <div class="align-items-center mb-3 d-none" id="validator-for-gas-longitude">
+            <label class="col-lg-3"></label>
+            <span class="text-danger col-lg-9 px-0">Longitudeを入力してください。</span>
+        </div>
+
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">Latitude: </label>
+            <input type="text" class="form-control col-lg-9" asp-for="Latitude" autofocus id="gas-station-latitude">
+        </div>
+        <div class="align-items-center mb-3 d-none" id="validator-for-gas-latitude">
+            <label class="col-lg-3"></label>
+            <span class="text-danger col-lg-9 px-0">Latitudeを入力してください。</span>
+        </div>
+
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">住所: </label>
+            <div class="px-0 col-lg-9">
+                <select class="w-100 px-2 py-1" id="select-district">
+                    <option class="w-100" value="">選択してください</option>
+                    @foreach (var item in listDistrist)
+                    {
+                        <option class="w-100" value="@item.DistrictId">@item.DistrictName</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="align-items-center mb-3 d-none" id="validator-for-gas-district">
+            <label class="col-lg-3"></label>
+            <span class="text-danger col-lg-9 px-0">種類を入力してください。</span>
+        </div>
+
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0"></label>
+            <input type="text" class="form-control col-lg-9" asp-for="Address" autofocus id="gas-station-address">
+        </div>
+        <div class="align-items-center mb-3 d-none" id="validator-for-gas-address">
+            <label class="col-lg-3"></label>
+            <span class="text-danger col-lg-9 px-0">"住所の長さは200文字を超えてはなりません"</span>
+        </div>
+
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">開館時間: </label>
+            <input type="text" class="form-control col-lg-9" asp-for="OpeningTime" autofocus id="gas-station-opening-time">
+        </div>
+        <div class="d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3"></label>
+            <span asp-validation-for="OpeningTime" class="text-danger col-lg-9 px-0"></span>
+        </div>
+
+        <div class="input-group mb-3 d-lg-flex align-items-center">
+            <label for="gas-station-name" class="col-lg-3 p-0 pb-2 pb-lg-0">評価: </label>
+            <div class="col-lg-9 d-lg-flex align-items-center">
+                @foreach (var item in ratingList)
+                {
+                    <div class="form-check form-check-inline mr-5 pr-5">
+                        <input class="form-check-input cursor" name="rating-gas" type="radio" id=@item.TypeCode value=@item.TypeCode>
+                        <label class="form-check-label cursor" for=@item.TypeCode> <img src="~/images/@(item.TypeText).png" />   @item.TypeText</label>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class=" mb-3 d-lg-flex col-12">
+            <div class="col-lg-9 offset-lg-3 text-center">
+                <input type="submit" value="登録" class="btn btn-primary mx-auto" id="submit-add-gas-station" />
+            </div>
+        </div>
+    </form>
+</main>
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSxLoeVH330_x1JYvbWXnNmGFAKFKOPeE" async defer></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.inputmask.bundle.js"></script>
+    <script src="~/js/addGasStationController.js"></script>
+}

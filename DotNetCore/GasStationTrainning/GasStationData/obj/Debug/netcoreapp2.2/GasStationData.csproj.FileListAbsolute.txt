@@ -1,0 +1,11 @@
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\bin\Debug\netcoreapp2.2\GasStationData.deps.json
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\bin\Debug\netcoreapp2.2\GasStationData.dll
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\obj\Debug\netcoreapp2.2\GasStationData.csproj.CoreCompileInputs.cache
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\obj\Debug\netcoreapp2.2\GasStationData.AssemblyInfoInputs.cache
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\obj\Debug\netcoreapp2.2\GasStationData.AssemblyInfo.cs
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\obj\Debug\netcoreapp2.2\GasStationData.csprojAssemblyReference.cache
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\bin\Debug\netcoreapp2.2\GasStationData.runtimeconfig.json
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\bin\Debug\netcoreapp2.2\GasStationData.runtimeconfig.dev.json
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\bin\Debug\netcoreapp2.2\GasStationData.pdb
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\obj\Debug\netcoreapp2.2\GasStationData.dll
+C:\Users\HPB\Desktop\DotNetCore\GasStationTrainning\GasStationData\obj\Debug\netcoreapp2.2\GasStationData.pdb

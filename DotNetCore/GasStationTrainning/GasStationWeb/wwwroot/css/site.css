@@ -1,0 +1,139 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+#map {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    z-index: 1000;
+    width: 400px;
+    height: 300px;
+}
+
+#map-content {
+    width: 400px;
+    height: 280px;
+}
+
+
+/*Medi for table*/
+@media only screen and (max-width: 992px), (min-device-width: 992px) and (max-device-width: 1024px) {
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #808080;
+        position: relative;
+        padding-left: 50%;
+        padding-bottom: 5px;
+    }
+
+        td:before {
+            position: absolute;
+            left: 6px;
+            top: -1px;
+            height: calc(100% + 3px);
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            border-right: 1px solid #333;
+        }
+
+        td:nth-of-type(1):before {
+            content: "ガソリンスタンド名:";
+        }
+
+        td:nth-of-type(2):before {
+            content: "種類:";
+        }
+
+        td:nth-of-type(3):before {
+            content: "地区:";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Longitude, Latitude:";
+        }
+
+        td:nth-of-type(5):before {
+            content: "評価:";
+        }
+
+        td:nth-of-type(6):before {
+            content: "Option:";
+        }
+}
